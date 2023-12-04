@@ -1,9 +1,11 @@
 
-fn main() {
-    let input_v1 = read_input_v1(include_str!("../../inputs/day01.txt"));
+pub fn day01_1() {
+    let input_v1 = read_input_v1(include_str!("../inputs/day01.txt"));
     println!("day 1a: {}", input_v1.iter().sum::<u64>());
+}
 
-    let input_v2 = read_input_v2(include_str!("../../inputs/day01.txt"));
+pub fn day01_2() {
+    let input_v2 = read_input_v2(include_str!("../inputs/day01.txt"));
     println!("day 1b: {}", input_v2.iter().sum::<u64>());
 }
 
