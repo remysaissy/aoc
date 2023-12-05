@@ -3,14 +3,14 @@ const MAX_RED: u64 = 12;
 const MAX_GREEN: u64 = 13;
 const MAX_BLUE: u64 = 14;
 
-pub fn day02_1() {
-    let input_v1 = read_input_v1(include_str!("../inputs/day02.txt"));
-    println!("day 2a: {}", input_v1.iter().sum::<u64>());
+pub fn day02_a(input: &str) -> u64 {
+    let result = read_input_v1(input);
+    result.iter().sum::<u64>()
 }
 
-pub fn day02_2() {
-    let input_v2 = read_input_v2(include_str!("../inputs/day02.txt"));
-    println!("day 2b: {}", input_v2.iter().sum::<u64>());
+pub fn day02_b(input: &str) -> u64 {
+    let result = read_input_v2(input);
+    result.iter().sum::<u64>()
 }
 
 fn read_input_v1(input: &str) -> Vec<u64> {

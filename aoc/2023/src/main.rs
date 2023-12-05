@@ -1,19 +1,13 @@
-use std::time::Instant;
-use aoc_2023::day01::{day01_1, day01_2};
-use aoc_2023::day02::{day02_1, day02_2};
-use aoc_2023::day03::day03_1;
-
-fn run_timed(name: &str, f: fn()) {
-    let now = Instant::now();
-    f();
-    let elapsed = now.elapsed();
-    println!("{} elapsed: {:.2?}", name, elapsed);
-}
+use aoc_2023::day01::{day01_a, day01_b};
+use aoc_2023::day02::{day02_a, day02_b};
+use aoc_2023::day03::{day03_a, day03_b};
+use aoc_2023::inputs::INPUTS;
 
 fn main() {
-    run_timed("day01_1", day01_1);
-    run_timed("day01_2", day01_2);
-    run_timed("day02_1", day02_1);
-    run_timed("day02_2", day02_2);
-    run_timed("day03_1", day03_1);
+    println!("Day 1a: {}", day01_a(INPUTS[0]));
+    println!("Day 1b: {}", day01_b(INPUTS[0]));
+    println!("Day 2a: {}", day02_a(INPUTS[1]));
+    println!("Day 2b: {}", day02_b(INPUTS[1]));
+    println!("Day 3a: {}", day03_a(INPUTS[2]));
+    println!("Day 3a: {}", day03_b(INPUTS[2]));
 }

@@ -1,12 +1,11 @@
-
-pub fn day01_1() {
-    let input_v1 = read_input_v1(include_str!("../inputs/day01.txt"));
-    println!("day 1a: {}", input_v1.iter().sum::<u64>());
+pub fn day01_a(input: &str) -> u64 {
+    let result = read_input_v1(input);
+    result.iter().sum::<u64>()
 }
 
-pub fn day01_2() {
-    let input_v2 = read_input_v2(include_str!("../inputs/day01.txt"));
-    println!("day 1b: {}", input_v2.iter().sum::<u64>());
+pub fn day01_b(input: &str) -> u64 {
+    let result = read_input_v2(input);
+    result.iter().sum::<u64>()
 }
 
 fn read_input_v1(input: &str) -> Vec<u64> {
@@ -23,6 +22,8 @@ fn read_input_v1(input: &str) -> Vec<u64> {
     }).collect::<Vec<u64>>()
 }
 
+const WORDS_TO_DIGITS: [&str; 10] = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"];
+
 fn read_input_v2(input: &str) -> Vec<u64> {
     input.lines().map(|line| {
         let mut numerics: Vec<char> = Vec::with_capacity(line.len());
@@ -33,24 +34,14 @@ fn read_input_v2(input: &str) -> Vec<u64> {
             if s.is_numeric() {
                 numerics.push(s);
             } else {
-                if slice.starts_with("one") {
-                    numerics.push('1');
-                } else if slice.starts_with("two") {
-                    numerics.push('2');
-                } else if slice.starts_with("three") {
-                    numerics.push('3');
-                } else if slice.starts_with("four") {
-                    numerics.push('4');
-                } else if slice.starts_with("five") {
-                    numerics.push('5');
-                } else if slice.starts_with("six") {
-                    numerics.push('6');
-                } else if slice.starts_with("seven") {
-                    numerics.push('7');
-                } else if slice.starts_with("eight") {
-                    numerics.push('8');
-                } else if slice.starts_with("nine") {
-                    numerics.push('9');
+                let mut digit = 0;
+                for word in WORDS_TO_DIGITS {
+                    if slice.starts_with(word) {
+                        let value = char::from_digit(digit, 10).unwrap();
+                        numerics.push(value);
+                        break;
+                    }
+                    digit += 1;
                 }
             }
             idx += 1;
