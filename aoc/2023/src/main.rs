@@ -9,5 +9,5 @@ fn main() {
     println!("Day 2a: {}", day02_a(INPUTS[1]));
     println!("Day 2b: {}", day02_b(INPUTS[1]));
     println!("Day 3a: {}", day03_a(INPUTS[2]));
-    println!("Day 3a: {}", day03_b(INPUTS[2]));
+    println!("Day 3b: {}", day03_b(INPUTS[2]));
 }
